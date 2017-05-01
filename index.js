@@ -21,7 +21,7 @@ const AutocompletePrompt = {
 		const self = this
 	  	const p = this.completing = this.suggest(this.input)
 	  	p.then((suggestions) => {
-	  		if (this.completing !== p) return
+	  		if (!suggestions || this.completing !== p) return
 	  		self.suggestions = suggestions.slice(0, self.limit)
 			this.completing = false
 			const l = Math.max(suggestions.length - 1, 0)
